@@ -1,8 +1,13 @@
 import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router';
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroById } from '../../selectors/getHeroById';
 
+//import batman from '../../assets/heroes/dc-batman.jpg'; //trae imagenes estaticamente
+
 //useParams extrae los parametros que vienen por URL
+
+
 
 export const HeroScreen = ({ history }) => {
 
@@ -39,7 +44,7 @@ export const HeroScreen = ({ history }) => {
             <div className="col-4">
                 <img
                     className="img-thumbnail animate__animated animate__fadeInLeft"
-                    src={ `./assets/heroes/${heroeId}.jpg` } //../assets no se reconocia en el server de github
+                    src={heroImages( `./${heroeId}.jpg` ).default } 
                     alt={superhero}
                 />
             </div>
@@ -67,3 +72,9 @@ export const HeroScreen = ({ history }) => {
         </div>
     )
 }
+
+//NOTAS:
+
+// cuando los assets estaban en la carpeta public: src={ `./assets/heroes/${heroeId}.jpg` } //../assets no se reconocia en el server de github
+
+//cuando se usa el import:  src={batman} 
