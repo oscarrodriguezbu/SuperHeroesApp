@@ -4,11 +4,11 @@ import { getHeroById } from '../../selectors/getHeroById';
 
 //useParams extrae los parametros que vienen por URL
 
-export const HeroScreen = ({history}) => {
+export const HeroScreen = ({ history }) => {
 
     const { heroeId } = useParams();
-    const hero = useMemo(() => getHeroById(heroeId), [heroeId]) ;
-   
+    const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
+
     /* console.log(hero);
     console.log(heroeId); */
 
@@ -17,8 +17,8 @@ export const HeroScreen = ({history}) => {
     }
 
     const handleReturn = () => {
-       
-        if (history.length<=2) {
+
+        if (history.length <= 2) {
             history.push('/');
         } else {
             history.goBack('/');
@@ -39,8 +39,9 @@ export const HeroScreen = ({history}) => {
             <div className="col-4">
                 <img
                     className="img-thumbnail animate__animated animate__fadeInLeft"
+                    src={`../assets/heroes/${heroeId}.jpg`}
                     alt={superhero}
-                    src={`../assets/heroes/${heroeId}.jpg`} />
+                />
             </div>
 
             <div className="col-8 animate__animated animate__fadeIn">
@@ -54,9 +55,9 @@ export const HeroScreen = ({history}) => {
                 <h5> Characters </h5>
                 <p> {characters} </p>
 
-                <button 
-                className="btn btn-outline-info"
-                onClick={handleReturn}
+                <button
+                    className="btn btn-outline-info"
+                    onClick={handleReturn}
                 >
                     Return
                 </button>

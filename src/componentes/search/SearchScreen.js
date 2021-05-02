@@ -15,7 +15,7 @@ export const SearchScreen = ({ history }) => {
     // console.log(queryString.parse(location.search));
     // const { q = '' } = queryString.parse(location.search); //se puede usar useMemo para no recalcular ciertos valores como location.search
     const { q = '' } = useMemo(() => queryString.parse(location.search), [location.search]); //he implementado el useMemo para optimizar
-    console.log(q);
+   /*  console.log(q); */
 
 
 
@@ -36,7 +36,7 @@ export const SearchScreen = ({ history }) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log(searchText);
+        /* console.log(searchText); */
         history.push(`?q=${searchText}`); //con esto lo que ponemos en el inpu se agrega a la direccion http de la pagina
 
     }
